@@ -25,5 +25,9 @@ def gcd(x,y):
 print(gcd(88,56))
 
 
+def lcm(x,y):
+    return x*y//gcd(x,y)
+
+print(lcm(8,6))
 
 
