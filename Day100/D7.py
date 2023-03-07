@@ -107,3 +107,12 @@ print(fruits,fruits2)
 
 
 '''
+def fib(num):
+    a,b=0,1
+    for _ in range(0,num):
+        a,b=b,a+b
+        yield a
+    
+
+for val in fib(10):
+    print(val)
