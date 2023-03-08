@@ -1,4 +1,6 @@
 import os
+import time
+
 '''
 s1 = 'hello, world!'
 s2 = "hello, world!"
@@ -119,20 +121,6 @@ for val in fib(10):
     print(val)
 
 
-
-def main():
-    pass
-    content='北京欢迎您。。。。。。'
-    while  True:
-
-
-
-
-
-
-if __name__=='__main__':
-    main()
-'''
 def get_filelists(file_dir='.'):
     list_directory = os.listdir(file_dir)
     filelists = []
@@ -142,7 +130,71 @@ def get_filelists(file_dir='.'):
             filelists.append(directory)
     return filelists
 
-print(get_filelists('/Users/jigaotang/Downloads/Python-100-Days-master/Day01-15'))
+def list_file():
+    list_file=os.listdir('E:/nsconfig')
+    file_list=[]
+    for file_name in list_file:
+        file_path=os.path.join('E:/nsconfig\\\\',file_name)
+        if os.path.isfile(file_path):
+            file_list.append(file_name)
+    return(file_list)
+
+print(list_file())
 
 
-sss=1
+
+#練習1
+def main():
+    content='北京欢迎您。。。。。。'
+    while  True:
+        os.system('cls')
+        print(content)
+        time.sleep(0.2)
+        content=content[1:]+content[0]
+
+
+if __name__=='__main__':
+    main()
+
+
+#練習2
+import random
+
+def gen_code(code_len=4):
+    all_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    code=""
+    for _ in range(code_len):
+        code+=all_chars[random.randint(0,len(all_chars)-1)]
+        # code.append(all_chars[random.randrange(0,len(all_chars)-1)])
+    print(code)
+def main():
+    gen_code()
+
+
+if __name__ == '__main__':
+    main()
+
+    
+  '''  
+def get_suffix(filename='E:', has_dot=False):
+    file=os.listdir(filename)
+    
+    for f in file:
+        dot= f.rfind('.')
+        if 0<dot<len(f):
+            yield f[dot+1:]
+        else:
+            yield 'no dot'
+        
+
+
+
+
+
+def main():
+    dot_name=get_suffix('E:/nsconfig')
+    for dot in dot_name:
+        print(dot)
+
+if __name__=='__main__':
+    main()
