@@ -1,3 +1,4 @@
+import os
 '''
 s1 = 'hello, world!'
 s2 = "hello, world!"
@@ -106,7 +107,7 @@ fruits2=fruits[1:4]
 print(fruits,fruits2)
 
 
-'''
+
 def fib(num):
     a,b=0,1
     for _ in range(0,num):
@@ -116,3 +117,29 @@ def fib(num):
 
 for val in fib(10):
     print(val)
+
+
+
+def main():
+    pass
+    content='北京欢迎您。。。。。。'
+    while  True:
+
+
+
+
+
+
+if __name__=='__main__':
+    main()
+'''
+def get_filelists(file_dir='.'):
+    list_directory = os.listdir(file_dir)
+    filelists = []
+    for directory in list_directory:
+        # os.path 模块稍后会讲到
+        if os.path.isfile(directory):
+            filelists.append(directory)
+    return filelists
+
+print(get_filelists('/Users/jigaotang/Downloads/Python-100-Days-master/Day01-15'))
