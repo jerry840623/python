@@ -270,7 +270,7 @@ if __name__ == '__main__':
     main()
 
 
-  '''     
+
 #练习6 杨辉三角
 def main():
     num = int(input('Number of rows: '))
@@ -288,3 +288,106 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+          
+from random import randint,randrange,sample
+
+def display(balls):
+    """
+    输出列表中的双色球号码
+    """
+    for index, ball in enumerate(balls):
+        if index == len(balls) - 1:
+            print('|', end=' ')
+        print('%02d' % ball, end=' ')
+    print()
+
+
+def random_select():
+    """
+    随机选择一组号码
+    """
+    red_balls = [x for x in range(1, 34)]
+    selected_balls = []
+    selected_balls = sample(red_balls, 6)
+    selected_balls.sort()
+    selected_balls.append(randint(1, 16))
+    return selected_balls
+
+def main():
+    n = int(input('机选几注: '))
+    for _ in range(n):
+        display(random_select())
+
+if __name__ =="__main__":
+    main()
+    
+
+
+
+
+def main():
+    persons=[True]*30
+    dp,index,number=0,0,0
+    while dp<15:
+        if persons[index]:
+            number+=1
+            if number == 9:
+                persons[index]=False
+                dp+=1
+                number=0
+        index+=1
+        index%=30
+    for person in persons:
+        print('基'if person else '非基',end=' ')
+
+
+if __name__=='__main__':
+    main()
+
+
+
+import os
+
+
+def print_board(board):
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print('-+-+-')
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print('-+-+-')
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
+
+
+def main():
+    init_board = {
+        'TL': ' ', 'TM': ' ', 'TR': ' ',
+        'ML': ' ', 'MM': ' ', 'MR': ' ',
+        'BL': ' ', 'BM': ' ', 'BR': ' '
+    }
+    begin = True
+    while begin:
+        curr_board = init_board.copy()
+        begin = False
+        turn = 'x'
+        counter = 0
+        os.system('cls')
+        print_board(curr_board)
+        while counter < 9:
+            move = input('轮到%s走棋, 请输入位置: ' % turn)
+            if curr_board[move] == ' ':
+                counter += 1
+                curr_board[move] = turn
+                if turn == 'x':
+                    turn = 'o'
+                else:
+                    turn = 'x'
+            os.system('clear')
+            print_board(curr_board)
+        choice = input('再玩一局?(yes|no)')
+        begin = choice == 'yes'
+
+
+if __name__ == '__main__':
+    main()
+
+''' 
