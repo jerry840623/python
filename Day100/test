@@ -1,0 +1,30 @@
+import random
+
+
+class Card(object):
+    """一张牌"""
+
+def __init__(self,suite,face):
+    self._suite=suite
+    self._face=face
+
+@property
+def suite(self):
+    return self._suite
+
+@property
+def face(self):
+    return self._face
+
+def __str__(self):
+    if self._face==1:
+        self._face='A'
+    elif self._face==11:
+        self._face='J'
+    elif self._face==12:
+        self._face="Q"
+    elif self._face==13:
+        self._face='K'
+    else:
+        self._face=str(self._self)
+    return '%s%s' %(self._suite,self._face)
