@@ -2,16 +2,10 @@ import random
 
 
 class Card(object):
-<<<<<<< HEAD
     """一张牌"""
     def __init__(self,suite,face):
         self._suite=suite
         self._face=face
-=======
-    def __init__(self, suite, face):
-        self._suite = suite
-        self._face = face
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
 
     @property
     def suite(self):
@@ -22,7 +16,6 @@ class Card(object):
         return self._face
     
     def __str__(self):
-<<<<<<< HEAD
         if self._face==1:
             self._face='A'
         elif self._face==11:
@@ -44,47 +37,17 @@ class Poker(object):
         self._cards=[Card(suite,face) for suite in '♠♥♣♦' for face in range(1,14)]
         self._current=0
         self._cards.extend([Card('B','K'),Card('S','Q')])
-=======
-        if self._face == 1:
-            self._face == 'A'
-        elif self._face == 11:
-            self._face = 'J'
-        elif self._face == 12:
-            self._face = 'Q'
-        elif self._face == 13:
-            self._face = 'K'
-        else:
-            self._face = str(self._face)
-
-        return '%s%s' % (self._suite, self._face)
-
-    def __repr__(self):
-        return self.__str__()
-
-
-class Poker(object):
-    def __init__(self):
-        self._cards = [Card(suite, face)
-                       for suite in '♠♥♣♦' for face in range(1, 14)]
-        self._current = 0
-        self._cards.extend([Card('B','King'),Card('S','Queen')])
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
 
     @property
     def cards(self):
         return self._cards
-<<<<<<< HEAD
     
-=======
-
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
     def shuffle(self):
         random.shuffle(self._cards)
         self._current=0
 
     @property
     def push_card(self):
-<<<<<<< HEAD
         while self.has_cards:
             card = self._cards[self._current]
             self._current+=1
@@ -99,21 +62,6 @@ class Player(object):
     def __init__(self,name) -> None:
         self._name=name
         self._cards_on_hand=[]
-=======
-        card = self._cards[self._current]
-        self._current += 1
-        return card
-
-    def has_card(self):
-        return self._current < len(self._cards)
-
-
-class Player(object):
-    def __init__(self, name):
-        self._name = name
-        self._cards_on_hand=[]
-
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
 
     @property
     def name(self):
@@ -123,7 +71,6 @@ class Player(object):
     def cards_on_hand(self):
         return self._cards_on_hand
     
-<<<<<<< HEAD
     
     def get_card(self,card):
         self._cards_on_hand.append(card)
@@ -132,51 +79,21 @@ class Player(object):
         self._cards_on_hand.sort(key=key_card)
         
 
-=======
-    def hand_cards(self,card):
-        self._cards_on_hand.append(card)
-
-    def arrange(self,card_key):
-        self._cards_on_hand.sort(key=card_key)
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
 
 def get_key(card):
     return (card.suite,card.face)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
 def main():
     c=Poker()
     c.shuffle()
     players=[Player('jerry'),Player('kian'),Player('justin')]
-<<<<<<< HEAD
     for _ in range(18):
         for player in players:
             player.get_card(c.push_card)
     for player in players:
         print(player.name,':', end=' ')
         player.arrange(get_key)
-=======
-    for _ in range(14):
-        for player in players:
-            player.hand_cards(c.push_card)
-
-    for player in players:
-        print(player.name,':',end=' ')
-        #player.arrange(get_key)
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
         print(player.cards_on_hand)
 
 if __name__=='__main__':
     main()
-
-
-<<<<<<< HEAD
-
-
-
-    
-=======
->>>>>>> c00d65f8d838984cc1ffb08f982c6f0a401d16ff
