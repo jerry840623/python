@@ -22,7 +22,6 @@ if __name__=='__main__':
     main()
 
 
-'''
 
 from math import sqrt
 
@@ -60,4 +59,71 @@ def main():
 
 
 if __name__ == '__main__':
+    main()
+
+
+import time
+def main():
+
+    with open('D:\\vs-code\\Python-100-Days-master\\Day01-15\\code\\Day11\\致橡树.txt', 'r', encoding='utf-8') as f:
+        print(f.read())
+    
+
+    with open('D:\\vs-code\\Python-100-Days-master\\Day01-15\\code\\Day11\\致橡树.txt', 'r', encoding='utf-8') as f:
+        for line in f:
+            print(line)
+            time.sleep(0.5)
+
+    with open('D:\\vs-code\\Python-100-Days-master\\Day01-15\\code\\Day11\\致橡树.txt', 'r', encoding='utf-8') as f:
+        lines=f.readlines()
+        print(lines)
+        for line in lines:
+            print(line)
+
+if __name__=='__main__':
+    main()
+
+    
+
+
+import json
+
+def main():
+    mydict={
+        'name': '骆昊',
+        'age': 38,
+        'qq': 957658,
+        'friends': ['王大锤', '白元芳'],
+        'cars': [
+            {'brand': 'BYD', 'max_speed': 180},
+            {'brand': 'Audi', 'max_speed': 280},
+            {'brand': 'Benz', 'max_speed': 320}
+        ]
+    }
+
+    try:
+        with open('data.json', 'w', encoding='utf-8') as fs:
+            json.dump(mydict,fs)
+    except FileNotFoundError as e:
+        print(e)
+    print('Save date Finshed')
+
+
+
+if __name__=='__main__':
+    main()
+'''
+
+import requests
+import json
+
+
+def main():
+    resp = requests.get('http://api.tianapi.com/guonei/?key=APIKey&num=10')
+    data_model = json.loads(resp.text)
+
+    for news in data_model['newslist']:
+        print(news['title'])
+
+if __name__=='__main__':
     main()
