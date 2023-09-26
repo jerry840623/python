@@ -1,14 +1,11 @@
-import requests
-import json
-
-def main():
-
-    with open ('a.txt','r',encoding='utf-8') as fff:
-        f1=fff.read()
-    b=eval(f1)
-    print(b.get('code',11111))
-        
-    
-
-if __name__=='__main__':
-    main()
+import re
+pattern = re.compile(r'(\w+) (\w+)')
+s = 'i say, hello world!'
+print(re.subn(pattern, r'\2 \1', s))
+def func(m):
+    return m.group(1).title() + ' ' + m.group(2).title()
+print(s)
+print(re.subn(pattern, func, s))
+### output ###
+# ('say i, world hello!', 2)
+# ('I Say, Hello World!', 2)
